@@ -48,10 +48,12 @@ h4Elems[1].textContent = "\"... and then I don't feel so bad.\""
 h3Elems[0].textContent = "Julie Andrews' Favorite Things";
 h3Elems[1].textContent = "My Favorite Things";
 
+// Add href and style img
 imgElem.src = "gus.jpg";
 imgElem.style.maxWidth = "300px";
 imgElem.style.maxHeight = "300px";
 
+// Grid layout for lists
 divRowElem.classList.add("row");
 divColElems[0].classList.add("col-5");
 divColElems[1].classList.add("col-5");
@@ -65,16 +67,19 @@ body.appendChild(document.createElement("br"));
 body.appendChild(h4Elems[0]);
 body.appendChild(document.createElement("br"));
 
+// Create lists
 for (let i = 0; i < 2; i++) 
 {
     divColElems[i].appendChild(h3Elems[i]);
 
+    // <li> items from favThings arrays
     favThings[i].forEach((item)=>{
         let li = document.createElement("li");
         li.textContent = item;
         ulElems[i].appendChild(li);
       })
     
+    // If myFavThings array, add image
     if (i == 1)
     {
         let li = document.createElement("li");
@@ -82,10 +87,11 @@ for (let i = 0; i < 2; i++)
         ulElems[i].appendChild(li);
     }
 
+    // Add respective list to respective column
     divColElems[i].appendChild(ulElems[i]);
 }
 
-
+// Add row div to body (parent to col divs -> ul -> li...)
 body.appendChild(divRowElem);
 
 body.appendChild(document.createElement("br"));
